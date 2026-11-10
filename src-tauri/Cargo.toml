@@ -1,0 +1,39 @@
+[package]
+name = "stikies"
+version = "0.1.1"
+description = "트레이에 머무는 가벼운 스티키 노트"
+authors = ["Stikies"]
+edition = "2021"
+rust-version = "1.90"
+
+[lib]
+name = "stikies_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "image-png", "image-ico"] }
+tauri-plugin-dialog = "2"
+tauri-plugin-autostart = "2"
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-single-instance = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+arrow-array = "=60.1.0"
+arrow-schema = "=60.1.0"
+parquet = { version = "=60.1.0", default-features = false, features = ["arrow", "snap"] }
+image = { version = "0.25", default-features = false, features = ["png"] }
+arboard = "3"
+base64 = "0.22"
+uuid = { version = "1", features = ["v4"] }
+dirs = "6"
+opener = "0.7"
+
+[profile.release]
+codegen-units = 8
+lto = false
+opt-level = 3
+strip = true
+panic = "abort"

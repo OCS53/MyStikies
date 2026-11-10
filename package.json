@@ -1,0 +1,21 @@
+{
+  "name": "stikies",
+  "private": true,
+  "version": "0.1.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "tauri": "tauri",
+    "start": "tauri dev",
+    "installer": "tauri build --bundles nsis",
+    "installer:mac": "tauri build --bundles dmg --target universal-apple-darwin"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2"
+  }
+}
